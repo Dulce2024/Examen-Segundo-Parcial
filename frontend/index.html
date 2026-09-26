@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AutoSubastas GT — Subastas de Vehículos en Tiempo Real</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <h1>🚗 AutoSubastas <span>GT</span></h1>
+  <nav>
+    <button class="navBtn active" data-view="home">Inicio</button>
+    <button class="navBtn" data-view="publish">Publicar vehículo</button>
+    <button class="navBtn" data-view="mine">Mis publicaciones</button>
+    <span id="authArea"></span>
+  </nav>
+</header>
+
+<main>
+  <section id="view-home" class="view active">
+    <aside class="filters">
+      <h3>Filtros</h3>
+      <input id="fMarca" placeholder="Marca">
+      <input id="fModelo" placeholder="Modelo">
+      <input id="fAnio" placeholder="Año" type="number">
+      <select id="fCombustible">
+        <option value="">Combustible</option>
+        <option>Gasolina</option><option>Diésel</option><option>Híbrido</option><option>Eléctrico</option>
+      </select>
+      <select id="fDanio">
+        <option value="">Nivel de daño</option>
+        <option value="verde">🟢 Verde</option><option value="amarillo">🟡 Amarillo</option><option value="rojo">🔴 Rojo</option>
+      </select>
+      <button id="btnFilter">Buscar</button>
+      <button id="btnClearFilter" class="secondary">Limpiar</button>
+    </aside>
+    <div id="grid" class="grid"><p class="empty">Cargando inventario…</p></div>
+  </section>
+
+  <section id="view-detail" class="view">
+    <button class="backBtn" data-view="home">&larr; Volver al inventario</button>
+    <div id="detailContent"></div>
+  </section>
+
+  <section id="view-publish" class="view">
+    <h2>Publicar vehículo</h2>
+    <form id="formPublish">
+      <div class="grid2">
+        <input name="anio" placeholder="Año" type="number" required>
+        <input name="tipo" placeholder="Tipo de artículo (Sedán, Pickup...)" required>
+        <input name="marca" placeholder="Marca" required>
+        <input name="modelo" placeholder="Modelo" required>
+        <input name="motor" placeholder="Motor" required>
+        <input name="transmision" placeholder="Transmisión" required>
+        <select name="combustible" required>
+          <option value="">Tipo de combustible</option>
+          <option>Gasolina</option><option>Diésel</option><option>Híbrido</option><option>Eléctrico</option>
+        </select>
+        <select name="tren" required>
+          <option value="">Tren de manejo</option>
+          <option>AWD</option><option>FWD</option><option>RWD</option><option>4WD</option>
+        </select>
+        <input name="cilindros" placeholder="Número de cilindros" type="number" required>
+        <select name="danio" required>
+          <option value="">Estado de daño</option>
+          <option value="verde">🟢 Verde — Daño menor / Limpio</option>
+          <option value="amarillo">🟡 Amarillo — Daño medio / Reparable</option>
+          <option value="rojo">🔴 Rojo — Daño severo / Salvamento</option>
+        </select>
+        <input name="precio_base" placeholder="Precio / Monto base (Q.)" type="number" required>
+        <label>Fecha y hora de inicio<input name="fecha_inicio" type="datetime-local" required></label>
+        <label>Fecha y hora de cierre<input name="fecha_cierre" type="datetime-local" required></label>
+      </div>
+      <label>Galería fotográfica — mínimo 5 fotos
+        <input name="fotos" type="file" multiple accept="image/*" required>
+      </label>
+      <button type="submit">Publicar vehículo</button>
+      <p class="msg" id="publishMsg"></p>
+    </form>
+  </section>
+
+  <section id="view-mine" class="view">
+    <h2>Mis publicaciones</h2>
+    <div id="mineGrid" class="grid"><p class="empty">Inicia sesión para ver tus publicaciones.</p></div>
+  </section>
+
+  <section id="view-auth" class="view">
+    <div class="authBox">
+      <form id="formLogin">
+        <h2>Iniciar sesión</h2>
+        <input name="correo" placeholder="Correo electrónico" required>
+        <input name="password" placeholder="Contraseña" type="password" required>
+        <button type="submit">Entrar</button>
+      </form>
+      <form id="formRegister">
+        <h2>Crear cuenta</h2>
+        <input name="nombre" placeholder="Nombre" required>
+        <input name="apellido" placeholder="Apellido" required>
+        <input name="correo" placeholder="Correo electrónico" required>
+        <input name="telefono" placeholder="Teléfono" required>
+        <input name="password" placeholder="Contraseña segura" type="password" required>
+        <button type="submit">Registrarme</button>
+      </form>
+    </div>
+    <p class="msg" id="authMsg"></p>
+  </section>
+</main>
+
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

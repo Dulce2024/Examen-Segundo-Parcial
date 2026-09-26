@@ -1,0 +1,61 @@
+:root{
+  --bg:#f4f8fb; --card:#ffffff; --primary:#2f7fe0; --primary-dark:#1e5fb0;
+  --accent:#ffb703; --text:#1e293b; --muted:#64748b; --border:#e2e8f0;
+  --verde:#22c55e; --amarillo:#eab308; --rojo:#ef4444;
+}
+*{box-sizing:border-box;}
+body{margin:0;font-family:system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text);}
+header{display:flex;justify-content:space-between;align-items:center;background:var(--primary);color:#fff;padding:14px 24px;flex-wrap:wrap;gap:10px;}
+header h1{margin:0;font-size:22px;}
+header h1 span{color:var(--accent);}
+nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.navBtn{background:transparent;border:1px solid rgba(255,255,255,.5);color:#fff;padding:8px 14px;border-radius:8px;cursor:pointer;}
+.navBtn.active,.navBtn:hover{background:#fff;color:var(--primary-dark);}
+button{font-family:inherit;}
+main{max-width:1200px;margin:20px auto;padding:0 16px;}
+.view{display:none;}
+.view.active{display:block;}
+#view-home{display:flex;gap:20px;align-items:flex-start;}
+#view-home.active{display:flex;}
+.filters{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;width:220px;flex-shrink:0;display:flex;flex-direction:column;gap:10px;}
+.filters input,.filters select{padding:8px;border:1px solid var(--border);border-radius:8px;}
+.filters button{padding:10px;border:none;border-radius:8px;background:var(--primary);color:#fff;cursor:pointer;}
+.filters button.secondary{background:#e2e8f0;color:var(--text);}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;flex:1;}
+.empty{color:var(--muted);}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;cursor:pointer;transition:.15s;box-shadow:0 1px 3px rgba(0,0,0,.05);}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.08);}
+.card img{width:100%;height:150px;object-fit:cover;}
+.card .info{padding:12px;}
+.card h4{margin:0 0 4px;font-size:16px;}
+.card .price{color:var(--primary-dark);font-weight:700;}
+.dot{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:middle;}
+.dot.verde{background:var(--verde);} .dot.amarillo{background:var(--amarillo);} .dot.rojo{background:var(--rojo);}
+.badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:600;margin-top:6px;}
+.badge.ganando{background:#dcfce7;color:#15803d;}
+.badge.superado{background:#fee2e2;color:#b91c1c;}
+.badge.cerrada{background:#e2e8f0;color:var(--muted);}
+form{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;max-width:700px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+input,select{padding:10px;border:1px solid var(--border);border-radius:8px;font-size:14px;width:100%;}
+label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted);}
+form button[type=submit]{margin-top:14px;padding:12px;border:none;border-radius:8px;background:var(--primary);color:#fff;font-weight:600;cursor:pointer;width:100%;}
+.msg{color:var(--rojo);font-weight:600;}
+.authBox{display:flex;gap:20px;flex-wrap:wrap;}
+.authBox form{flex:1;min-width:260px;display:flex;flex-direction:column;gap:10px;}
+.backBtn{background:none;border:none;color:var(--primary-dark);cursor:pointer;font-size:14px;margin-bottom:10px;}
+.detailGrid{display:flex;gap:24px;flex-wrap:wrap;}
+.carousel{width:420px;max-width:100%;}
+.carousel img{width:100%;height:280px;object-fit:cover;border-radius:12px;}
+.carousel .thumbs{display:flex;gap:6px;margin-top:8px;overflow-x:auto;}
+.carousel .thumbs img{width:60px;height:45px;object-fit:cover;border-radius:6px;cursor:pointer;opacity:.6;}
+.carousel .thumbs img.active{opacity:1;outline:2px solid var(--primary);}
+.specs{flex:1;min-width:260px;}
+.specs table{width:100%;border-collapse:collapse;}
+.specs td{padding:6px 0;border-bottom:1px solid var(--border);font-size:14px;}
+.specs td:first-child{color:var(--muted);width:45%;}
+.bidBox{background:#eef4fd;border-radius:12px;padding:16px;margin-top:16px;}
+.bidBox .current{font-size:26px;font-weight:800;color:var(--primary-dark);}
+.timer{font-weight:700;color:var(--rojo);}
+.bidBox input{margin-top:8px;}
+.bidBox button{margin-top:8px;padding:10px 16px;background:var(--primary);color:#fff;border:none;border-radius:8px;cursor:pointer;}
